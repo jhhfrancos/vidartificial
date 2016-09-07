@@ -27,8 +27,11 @@ public class Automatas {
         remplazoGrilla = grilla;
         for(int j = 0; j<iteraciones; j++){
             remplazoGrilla = iteracion(grilla);
-            for(int i = 0; i<grilla.length; i++)
-                System.out.println(Arrays.toString(grilla[i]));
+            for(int i = 0; i<grilla.length; i++){
+                for(int k = 0; k <grilla.length; k++){
+                    System.out.println(grilla[i][k]);
+                }
+            }
         }
     }
 
@@ -49,6 +52,7 @@ public class Automatas {
     private static int[][] iteracion(int[][] grilla) {
         int colorActual;
         int numVecinos;
+        int[][] nuevaGrilla = new int[grilla.length][grilla.length];
         for(int i = 0; i < grilla.length; i++){
             for(int j = 0; j <grilla.length; j++){
                 colorActual = grilla[i][j];
@@ -57,6 +61,7 @@ public class Automatas {
                 }
             }
         }
+        return nuevaGrilla;
     }
 
     private static int calcularVecinos(int[][] grilla, int i, int j) {
